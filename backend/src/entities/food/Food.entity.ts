@@ -1,6 +1,7 @@
-import { Column, Entity, OneToOne } from "typeorm";
+import { Column, Entity, ManyToOne, OneToOne } from "typeorm";
 import { CommonEntity } from "../common/Common.entity";
 import { Media } from "../media/media.entity";
+import { Category } from "../category/Category.entity";
 
 export enum FoodSpiciness {
   MILD = "MILD",
@@ -25,4 +26,9 @@ export class Food extends CommonEntity {
 
   @OneToOne(() => Media)
   image: Media;
+
+  @ManyToOne(() => Category, (category) => category.food, {
+    onDelete: "CASCADE",
+  })
+  category: Category;
 }

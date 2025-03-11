@@ -1,7 +1,7 @@
-import { BaseEntity, Column, Entity } from "typeorm";
+import { AfterLoad, BaseEntity, Column, Entity } from "typeorm";
 import { CommonEntity } from "../common/Common.entity";
 
-enum MediaType {
+export enum MediaType {
   CATEGORY_THUMBNAIL = "CATEGORY_THUMBNAIL",
   FOOD_THUMBNAIL = "FOOD_THUMBNAIL",
 }
@@ -13,4 +13,9 @@ export class Media extends CommonEntity {
 
   @Column()
   mediaType: MediaType;
+
+  @AfterLoad()
+  _() {
+    this.name = `http://localhost:8000/public/uploads/category/${this.name}`;
+  }
 }
