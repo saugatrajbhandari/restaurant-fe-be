@@ -18,11 +18,14 @@ export class Food extends CommonEntity {
   @Column({ type: "real" })
   price: number;
 
-  @Column({ type: "enum", enum: FoodSpiciness })
-  type: FoodSpiciness;
+  @Column({ type: "simple-array" })
+  style: string[];
 
-  @Column({ default: 0, type: "int" })
-  quantity: number;
+  @Column({ type: "boolean", default: false })
+  hasSpicyNess: boolean;
+
+  @Column({ type: "boolean", default: true })
+  isAvailable: boolean;
 
   @OneToOne(() => Media)
   image: Media;

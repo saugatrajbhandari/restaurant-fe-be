@@ -10,8 +10,8 @@ AppDataSource.initialize()
   .then(() => {
     console.log("Data Source has been initialized!");
     const app = express();
+    app.use(express.json());
     app.use("/api-docs", saggerUi.serve, saggerUi.setup(swaggerJson));
-
     RegisterRoutes(app);
     app.listen(8000, () => console.log("app is listening"));
   })

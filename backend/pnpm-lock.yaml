@@ -14,6 +14,9 @@ importers:
       '@types/multer':
         specifier: ^1.4.12
         version: 1.4.12
+      class-validator:
+        specifier: ^0.14.1
+        version: 0.14.1
       multer:
         specifier: 1.4.5-lts.1
         version: 1.4.5-lts.1
@@ -251,6 +254,9 @@ packages:
   '@types/strip-json-comments@0.0.30':
     resolution: {integrity: sha512-7NQmHra/JILCd1QqpSzl8+mJRc8ZHz3uDm8YV1Ks9IhK0epEiTw8aIErbvH9PI+6XbqhyIQy3462nEsn7UVzjQ==}
 
+  '@types/validator@13.12.2':
+    resolution: {integrity: sha512-6SlHBzUW8Jhf3liqrGGXyTJSIFe4nqlJ5A5KaMZ2l/vbM3Wh3KSybots/wfWVzNLK4D1NZluDlSQIbIEPx6oyA==}
+
   accepts@1.3.8:
     resolution: {integrity: sha512-PYAthTa2m2VKxuvSD3DPC/Gy+U+sOA1LAuT8mkmRuvw+NACSaeXEQ+NHcVF7rONl6qcaxV3Uuemwawk+7+SJLw==}
     engines: {node: '>= 0.6'}
@@ -350,6 +356,9 @@ packages:
   chokidar@3.6.0:
     resolution: {integrity: sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw==}
     engines: {node: '>= 8.10.0'}
+
+  class-validator@0.14.1:
+    resolution: {integrity: sha512-2VEG9JICxIqTpoK1eMzZqaV+u/EiwEJkMGzTrZf6sU/fwsnOITVgYJ8yojSy6CaXtO9V0Cc6ZQZ8h8m4UBuLwQ==}
 
   cliui@8.0.1:
     resolution: {integrity: sha512-BSeNnyus75C4//NQ9gQt1/csTXyo/8Sb+afLAkzAptFuMsod9HFokGNudZpi/oQV73hnVK+sR+5PVRMd+Dr7YQ==}
@@ -624,6 +633,9 @@ packages:
 
   jsonfile@6.1.0:
     resolution: {integrity: sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==}
+
+  libphonenumber-js@1.12.5:
+    resolution: {integrity: sha512-DOjiaVjjSmap12ztyb4QgoFmUe/GbgnEXHu+R7iowk0lzDIjScvPAm8cK9RYTEobbRb0OPlwlZUGTTJPJg13Kw==}
 
   lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
@@ -1490,6 +1502,8 @@ snapshots:
 
   '@types/strip-json-comments@0.0.30': {}
 
+  '@types/validator@13.12.2': {}
+
   accepts@1.3.8:
     dependencies:
       mime-types: 2.1.35
@@ -1596,6 +1610,12 @@ snapshots:
       readdirp: 3.6.0
     optionalDependencies:
       fsevents: 2.3.3
+
+  class-validator@0.14.1:
+    dependencies:
+      '@types/validator': 13.12.2
+      libphonenumber-js: 1.12.5
+      validator: 13.12.0
 
   cliui@8.0.1:
     dependencies:
@@ -1885,6 +1905,8 @@ snapshots:
       universalify: 2.0.1
     optionalDependencies:
       graceful-fs: 4.2.11
+
+  libphonenumber-js@1.12.5: {}
 
   lru-cache@10.4.3: {}
 

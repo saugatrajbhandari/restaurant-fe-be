@@ -9,6 +9,7 @@ import {
 } from "tsoa";
 import fs from "fs";
 import CategoryService from "../../services/category/Category.service";
+import MediaService from "../../services/media/Media.service";
 
 @Route("category")
 export class CategoryController extends Controller {

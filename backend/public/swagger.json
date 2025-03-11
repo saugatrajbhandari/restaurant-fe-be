@@ -49,15 +49,6 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"FoodSpiciness": {
-				"enum": [
-					"MILD",
-					"MEDIUM",
-					"HOT",
-					"EXTRA_HOT"
-				],
-				"type": "string"
-			},
 			"Category": {
 				"properties": {
 					"id": {
@@ -124,12 +115,17 @@
 						"type": "number",
 						"format": "double"
 					},
-					"type": {
-						"$ref": "#/components/schemas/FoodSpiciness"
+					"style": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
 					},
-					"quantity": {
-						"type": "number",
-						"format": "double"
+					"hasSpicyNess": {
+						"type": "boolean"
+					},
+					"isAvailable": {
+						"type": "boolean"
 					},
 					"image": {
 						"$ref": "#/components/schemas/Media"
@@ -145,8 +141,9 @@
 					"updatedAt",
 					"name",
 					"price",
-					"type",
-					"quantity",
+					"style",
+					"hasSpicyNess",
+					"isAvailable",
 					"image",
 					"category"
 				],
@@ -165,6 +162,53 @@
 		"contact": {}
 	},
 	"paths": {
+		"/media": {
+			"post": {
+				"operationId": "UploadMedia",
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"multipart/form-data": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"file": {
+										"type": "string",
+										"format": "binary"
+									},
+									"type": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"file",
+									"type"
+								]
+							}
+						}
+					}
+				}
+			}
+		},
+		"/food": {
+			"post": {
+				"operationId": "CreateFood",
+				"responses": {
+					"204": {
+						"description": "No content"
+					}
+				},
+				"security": [],
+				"parameters": []
+			}
+		},
 		"/category": {
 			"get": {
 				"operationId": "GetCategory",
