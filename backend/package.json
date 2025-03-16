@@ -18,7 +18,9 @@
   },
   "dependencies": {
     "@tsoa/runtime": "^6.6.0",
+    "@types/express": "^5.0.0",
     "@types/multer": "^1.4.12",
+    "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
     "multer": "1.4.5-lts.1",
     "pg": "^8.13.3",

@@ -166,8 +166,15 @@
 			"post": {
 				"operationId": "UploadMedia",
 				"responses": {
-					"204": {
-						"description": "No content"
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Media"
+								}
+							}
+						}
 					}
 				},
 				"security": [],
