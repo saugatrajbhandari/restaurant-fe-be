@@ -7,7 +7,7 @@ import {
   Min,
 } from "class-validator";
 
-class CreateFoodDTO {
+export class CreateFoodDTO {
   @IsString()
   @Length(3, 50)
   name: string;

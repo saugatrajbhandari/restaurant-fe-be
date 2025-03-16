@@ -3,6 +3,7 @@ import {
   Controller,
   FormField,
   Get,
+  Path,
   Post,
   Route,
   UploadedFile,
@@ -10,6 +11,7 @@ import {
 import fs from "fs";
 import CategoryService from "../../services/category/Category.service";
 import MediaService from "../../services/media/Media.service";
+import FoodService from "../../services/food/Food.service";
 
 @Route("category")
 export class CategoryController extends Controller {
@@ -40,5 +42,10 @@ export class CategoryController extends Controller {
     CategoryService.create({ fileName, categoryName: name });
 
     return { data: [] };
+  }
+
+  @Get("/:id/foods")
+  async getCategoryFoods(@Path() id: string) {
+    return await CategoryService.getCategoryFoods(id);
   }
 }

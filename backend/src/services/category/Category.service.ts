@@ -30,6 +30,13 @@ class CategoryService {
 
     return category;
   }
+
+  async getCategoryFoods(id: string) {
+    return await Category.findOneOrFail({
+      where: { id },
+      relations: ["food", "food.thumbnail"],
+    });
+  }
 }
 
 export default new CategoryService();

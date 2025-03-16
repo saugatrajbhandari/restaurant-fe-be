@@ -14,11 +14,23 @@ export class MediaController extends Controller {
     const fileName = Date.now() + file.originalname;
 
     if (type === MediaType.CATEGORY_THUMBNAIL) {
+      if (!fs.existsSync(`${process.cwd()}/public/uploads/category`)) {
+        fs.mkdirSync(`${process.cwd()}/public/uploads/category`, {
+          recursive: true,
+        });
+      }
+
       fs.writeFileSync(
         `${process.cwd()}/public/uploads/category/${fileName}`,
         buffer
       );
     } else {
+      if (!fs.existsSync(`${process.cwd()}/public/uploads/food`)) {
+        fs.mkdirSync(`${process.cwd()}/public/uploads/food`, {
+          recursive: true,
+        });
+      }
+
       fs.writeFileSync(
         `${process.cwd()}/public/uploads/food/${fileName}`,
         buffer
